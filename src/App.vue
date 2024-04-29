@@ -16,6 +16,10 @@ import ProjectItem from './components/ProjectItem.vue';
 
         projects: [],
 
+        apiLinks: [],
+
+        apiPageNumber: 2,
+
         baseApiUrl: 'http://127.0.0.1:8000/api',
       }
     },
@@ -28,12 +32,27 @@ import ProjectItem from './components/ProjectItem.vue';
       
       apiCall() {
 
-        axios.get(this.baseApiUrl + '/projects').then(res => {
-           this.projects = res.data.results;
-           console.log(this.projects);
+        axios.get(this.baseApiUrl + '/projects', { 
+          params: {
+            page: this.apiPageNumber
+          }
+        }).then(res => {        
+
+           this.projects = res.data.results.data;
+
+           this.apiLinks = res.data.results.links;
         })
-      }
+      },
+
+      changeApiPage(pageNumber) {
+        
+        this.apiPageNumber = pageNumber;
+
+        this.apiCall();
+      },
+
     },
+
   }
 </script>
 
