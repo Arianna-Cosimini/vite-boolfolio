@@ -16,9 +16,11 @@ import ProjectItem from './components/ProjectItem.vue';
 
         projects: [],
 
+        isLoading: false,
+
         apiLinks: [],
 
-        apiPageNumber: 2,
+        apiPageNumber: 1,
 
         baseApiUrl: 'http://127.0.0.1:8000/api',
       }
@@ -60,19 +62,65 @@ import ProjectItem from './components/ProjectItem.vue';
  <div class="container py-5 ">
   <h1 class="pb-4">Progetti</h1>
 
-  <div class="row gap-4">
-    <ProjectItem
-    class="col-auto"
-    v-for="currentProject in projects"
-    :project="currentProject">
-    </ProjectItem>
+    <div v-if="!isLoading" class="row gap-4" >
+        <ProjectItem
+        class="col-auto"
+        v-for="currentProject in projects"
+        :project="currentProject">
+        </ProjectItem>
 
-  </div>
+        <div id="pagination">
+
+            <ul class="d-flex gap-2">
+        
+                <li v-for="link in apiLinks" v-html="link.label" @click="changeApiPage(link.label)" :class="link.label == apiPageNumber ? 'active' : ''">
+                
+                </li>
+                
+            </ul>
+
+        </div>
+        
+    </div>
+    <div v-else>
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 
  </div>
     
 </template>
 
-<style scoped>
+<style >
+
+#pagination {
+  margin-top: 100px;
+  padding-top: 20px;
+  border-top: solid 1px gray;
+
+  ul {
+
+    list-style-type: none;
+    
+    li {
+      
+      padding: 8px;
+
+      text-decoration: none;
+      color: white;
+
+      transition: all .3s ease;
+
+      cursor: pointer;
+
+      &:hover, &.active {
+        background-color: rgba(255,255,255,0.4);
+        color: black;
+      }
+
+    }
+  }
+}
 
 </style>
