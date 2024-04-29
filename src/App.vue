@@ -1,7 +1,16 @@
 <script>
   import axios from 'axios';
 
+import ProjectItem from './components/ProjectItem.vue';
+
+
   export default {
+
+    components: {
+        ProjectItem,
+        
+    },
+
     data() {
       return {
 
@@ -30,7 +39,16 @@
 
 <template>
  <div class="container py-5 ">
-  <h1>ciao</h1>
+  <h1 class="pb-4">Progetti</h1>
+
+  <div class="row gap-4">
+    <ProjectItem
+    class="col-auto"
+    v-for="currentProject in projects"
+    :project="currentProject">
+    </ProjectItem>
+
+  </div>
 
  </div>
     
