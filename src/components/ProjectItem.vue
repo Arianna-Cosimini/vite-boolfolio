@@ -31,6 +31,7 @@ export default {
     <p class="card-text">{{ project.description }}</p>
     <p class="card-text">{{ project.type.title }}</p>
     <p class="card-text" v-for="technology in project.technologies">{{ technology.title }}</p>
+    <router-link :to="{name: 'single-project', params: {id: project.id}}" class="btn btn-info">Mostra Progetto</router-link>
   </div>
 </div>
 
