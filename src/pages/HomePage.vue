@@ -49,12 +49,29 @@
       },
 
       changeApiPage(pageNumber) {
+
+
+        if(pageNumber=="&laquo; Previous" && this.apiPageNumber > 1){
+
+                    
+          this.apiPageNumber -- ;
+
+        } else if(pageNumber=="Next &raquo;" && this.apiPageNumber < 4) {
+
+          
+          this.apiPageNumber ++ ;
+          
+        } 
+
+        if(!isNaN(pageNumber)){
+
+          this.apiPageNumber = pageNumber;
+        }
         
-        this.apiPageNumber = pageNumber;
 
         this.apiCall();
+        
       },
-
     },
 
   }
