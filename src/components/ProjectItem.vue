@@ -29,10 +29,10 @@ export default {
     <img :src="project.image ? 'http://127.0.0.1:8000/storage/' + project.image : '/img/fallback-image-one.jpg'" class="card-img-top" alt="...">
   </div>
   <div class="card-body">
-    <h5 class="card-title mb-3">{{ project.name }}</h5>
+    <h3 class="card-title mb-3">{{ project.name }}</h3>
     <!-- <p class="card-text">{{ project.description }}</p> -->
     <p class="card-text mb-3 fw-bold" v-if="project.type != null">{{ project.type.title }}</p>
-    <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-info mb-3">Mostra Progetto</router-link>
+    <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-info text-white mb-3">Mostra Progetto</router-link>
     <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
       <!-- <small class="card-text" v-for="technology in project.technologies">{{ technology.title }}</small> -->             
       <img class="techs" v-for="technology in project.technologies" :src="'/img/img-loghi/' + technology.title + '.png'" alt="{{ technology.title }}">

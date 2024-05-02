@@ -122,7 +122,8 @@ export default {
 
         li {
 
-            padding: 8px;
+            padding: 10px;
+            border-radius: 5%;
 
             text-decoration: none;
             color: white;
@@ -133,7 +134,8 @@ export default {
 
             &:hover,
             &.active {
-                background-color: rgba(255, 255, 255, 0.4);
+                // background-color: rgba(255, 255, 255, 0.4);
+                background-image: linear-gradient(to right, #699ffc, #bc38fe);
                 color: black;
             }
 
