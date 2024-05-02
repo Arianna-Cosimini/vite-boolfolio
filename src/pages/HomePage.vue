@@ -81,7 +81,7 @@
     <div class="container py-5 ">
      <h1 class="pb-4 text-center fw-bold text-uppercase">Progetti</h1>
    
-       <div v-if="!isLoading" class="row gap-4 justify-content-center" >
+       <div v-if="!isLoading" class="row justify-content-center" >
            <ProjectItem
            class="col-auto"
            v-for="currentProject in projects"
@@ -90,7 +90,7 @@
    
            <div id="pagination" class="d-flex justify-content-center">
    
-               <ul class="d-flex gap-2">
+               <ul class="d-flex gap-2 p-0">
            
                    <li v-for="link in apiLinks" v-html="link.label" @click="changeApiPage(link.label)" :class="link.label == apiPageNumber ? 'active' : ''">
                    
@@ -112,6 +112,10 @@
    </template>
    
    <style lang="scss">
+
+   .row{
+    gap: 20px;
+   }
    
    #pagination {
      margin-top: 100px;
