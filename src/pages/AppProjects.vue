@@ -85,9 +85,9 @@ export default {
             <ProjectItem class="col-auto" v-for="currentProject in projects" :project="currentProject">
             </ProjectItem>
 
-            <div id="pagination" class="d-flex justify-content-center">
+            <div id="pagination" class="d-flex justify-content-center p-0">
 
-                <ul class="d-flex gap-2">
+                <ul class="d-flex gap-2 p-0">
 
                     <li v-for="link in apiLinks" v-html="link.label" @click="changeApiPage(link.label)"
                         :class="link.label == apiPageNumber ? 'active' : ''">
@@ -110,6 +110,7 @@ export default {
 </template>
 
 <style lang="scss">
+
 #pagination {
     margin-top: 100px;
     padding-top: 20px;

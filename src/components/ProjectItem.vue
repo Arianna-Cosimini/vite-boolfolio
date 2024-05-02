@@ -31,11 +31,12 @@ export default {
   <div class="card-body">
     <h5 class="card-title mb-3">{{ project.name }}</h5>
     <!-- <p class="card-text">{{ project.description }}</p> -->
-    <p class="card-text mb-3" v-if="project.type != null">{{ project.type.title }}</p>
-    <div class="d-flex flex-wrap gap-2 mb-3">
-      <small class="card-text" v-for="technology in project.technologies">{{ technology.title }}</small>
+    <p class="card-text mb-3 fw-bold" v-if="project.type != null">{{ project.type.title }}</p>
+    <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-info mb-3">Mostra Progetto</router-link>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+      <!-- <small class="card-text" v-for="technology in project.technologies">{{ technology.title }}</small> -->             
+      <img class="techs" v-for="technology in project.technologies" :src="'/img/img-loghi/' + technology.title + '.png'" alt="{{ technology.title }}">
     </div>
-    <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-info">Mostra Progetto</router-link>
   </div>
 </div>
 
@@ -45,10 +46,12 @@ export default {
   .card{
     position: relative;
      width: calc(100% / 4 - 20px * 4 / 3);
+     height: 300px;
+     overflow: hidden;
 
     .img-wrapper{
       width: 100%;
-      height: 200px;
+      height: 100%;
 
       img{
         width: 100%;
@@ -59,15 +62,24 @@ export default {
 
     .card-body{
       position: absolute;
-      top: 0;
+      top: 100%;
       left: 0;
 
       width: 100%;
       height: 100%;
       display: none;
 
-      background-color: rgba(0, 0, 0, 0.6);
+      background-image: linear-gradient(to right, #699ffc, #bc38fe);
       color: white;
+
+      animation: 1s slide-up;
+      animation-fill-mode: forwards;
+
+      .techs{
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
     }
 
     &:hover{
@@ -75,6 +87,15 @@ export default {
       .card-body{
         display: flex;
         flex-direction: column;
+
+        @keyframes slide-up {
+          from {
+            top: 100%;
+          }
+          to {
+            top: 0%;
+          }
+        }
       }
     }
   }
