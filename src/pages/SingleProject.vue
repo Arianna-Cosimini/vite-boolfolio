@@ -10,9 +10,14 @@ export default {
             project: null,
             projectSlug: null,
 
+            count:1,
+
             baseApiUrl: 'http://127.0.0.1:8000/api',
         }
     },
+
+   
+
 
     mounted() {
 
@@ -23,12 +28,16 @@ export default {
             if (res.data.success) {
                 
                 this.project = res.data.project
-                console.log(this.project)
             } else {
 
                 this.$router.push({name: 'home'})
             }
         })
+
+        
+
+
+
     },
 }
 
@@ -36,8 +45,8 @@ export default {
 
 <template>
 
-    <div id = "single-page" class="container p-5" v-if="project">
-        <div class="row justify-content-center   ">
+    <div id = "single-page" class="" v-if="project">
+        <div id="jumbo" class="row justify-content-center m-0">
             <div class="col-auto pb-5 position-relative ">
                 <div class="text-center text-capitalize z-1 position-absolute top-50 start-50 translate-middle">
                     <h1>{{ project.name }}</h1>
@@ -49,12 +58,12 @@ export default {
                 <img class="img-project" :src="'http://127.0.0.1:8000/storage/' + project.image" alt="">
             </div>
         </div>
-        <div class="row justify-content-center gap-2 pb-4">
-            <div class="col-auto" v-for="technology in project.technologies">                
-                <img :src="'/img/img-loghi/' + technology.title + '.png'" alt="{{ technology.title }}">
+        <div class="row justify-content-center gap-2 pb-4 m-0 tech-list">
+            <div class="tech col-auto" v-for="technology in project.technologies">                   
+                <img class="slide-top" :src="'/img/img-loghi/' + technology.title + '.png'" alt="{{ technology.title }}">
             </div>
         </div>
-        <div class="row">
+        <div class="row m-0">
             
             <div class="col-auto pt-3">
                 <p>{{ project.description }}</p>
@@ -69,11 +78,18 @@ export default {
         </div>
     </div>
 
+
 </template>
 
 <style lang="scss">
 
+
+
 #single-page{
+
+    
+
+    
     h1,h2{
         -webkit-text-stroke: 1px black;
 
@@ -88,7 +104,37 @@ export default {
         
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         filter: brightness(90%);
+
+        
     }
+
+    .tech{
+
+        .slide-top{
+            animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse;
+    
+            opacity: 100%;
+            transition: opacity 0.5 linear;
+    
+        }
+    
+        @keyframes slide-top {
+            0% {
+                        transform: translateY(0);
+            }
+            100% {
+                        transform: translateY(-100px);
+                        opacity: 0%;
+    
+            }
+        }
+
+    }
+        
+
+
+
+
 
     li{
         list-style: none;
