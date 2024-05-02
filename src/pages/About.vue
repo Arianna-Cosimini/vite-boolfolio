@@ -110,7 +110,7 @@ export default {
 
         </div>
 
-        <router-link :to="{ name: 'contacts', params: { slug: '/contacts' } }" class="btn"
+        <router-link :to="{ name: 'contacts'}" class="btn"
             style="border: 1px solid #bc38fe;"><span
                 class="d-flex align-items-center justify-content-center gap-2 fw-bold">
                 Contattami <i class="fa-solid fa-arrow-right"></i>

@@ -24,7 +24,7 @@ export default {
 
         <nav class="navbar navbar-expand-lg" style="z-index: 1;">
             <div class="container-fluid">
-                <router-link :to="{ name: 'home', params: { slug: '/' } }" class="navbar-brand">
+                <router-link :to="{ name: 'home'}" class="navbar-brand">
                     <h1 class="display-1 text-uppercase fw-bold">Boolfolio</h1>
                 </router-link>
 
@@ -45,10 +45,10 @@ export default {
                         <router-link :to="{ name: 'about' }"
                             class="text-decoration-none fw-bold text-white">Chi sono</router-link>
 
-                        <router-link :to="{ name: 'app-projects', params: { slug: projects } }"
+                        <router-link :to="{ name: 'app-projects'}"
                             class="text-decoration-none fw-bold text-white">I miei progetti</router-link>
 
-                        <router-link :to="{ name: 'contacts', params: { slug: '/contacts' } }"
+                        <router-link :to="{ name: 'contacts'}"
                             class="text-decoration-none fw-bold text-white">Contatti</router-link>
 
                     </ul>
