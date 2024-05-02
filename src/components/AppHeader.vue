@@ -41,11 +41,12 @@ export default {
                         <router-link :to="{ name: 'home', params: { slug: '/' } }"
                             class="text-decoration-none fw-bold text-white">Home</router-link>
 
+                        <router-link :to="{ name: 'about', params: { slug: '/chi-sono' } }"
+                            class="text-decoration-none fw-bold text-white">Chi sono</router-link>
+                            
                         <router-link :to="{ name: 'app-projects', params: { slug: projects } }"
                             class="text-decoration-none fw-bold text-white">I miei progetti</router-link>
 
-                        <router-link :to="{ name: 'about', params: { slug: '/chi-sono' } }"
-                            class="text-decoration-none fw-bold text-white">Chi sono</router-link>
                     </ul>
 
                 </div>
@@ -56,7 +57,7 @@ export default {
 
 </template>
 
-<style lang="scss"scoped>
+<style lang="scss" scoped>
 h1 {
     font-size: 50px;
     margin-bottom: 0;
