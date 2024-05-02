@@ -22,11 +22,12 @@ export default {
 <template>
     <div class="container py-5">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg" style="z-index: 1;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <router-link :to="{ name: 'home', params: { slug: '/' } }" class="navbar-brand">
                     <h1 class="display-1 text-uppercase fw-bold">Boolfolio</h1>
-                </a>
+                </router-link>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +44,12 @@ export default {
 
                         <router-link :to="{ name: 'about', params: { slug: '/chi-sono' } }"
                             class="text-decoration-none fw-bold text-white">Chi sono</router-link>
-                            
+
                         <router-link :to="{ name: 'app-projects', params: { slug: projects } }"
                             class="text-decoration-none fw-bold text-white">I miei progetti</router-link>
+
+                        <router-link :to="{ name: 'contacts', params: { slug: '/contacts' } }"
+                            class="text-decoration-none fw-bold text-white">Contatti</router-link>
 
                     </ul>
 

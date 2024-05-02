@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.vue';
 import SingleProject from './pages/SingleProject.vue'
 import AppProjects from './pages/AppProjects.vue';
 import About from './pages/About.vue';
+import Contacts from './pages/Contacts.vue';
 
 
 const router = createRouter({
@@ -32,6 +33,11 @@ const router = createRouter({
             path:'/chi-sono',
             name: 'about',
             component: About
+        },
+        {
+            path:'/contatti',
+            name:'contacts',
+            component: Contacts
         }
     ]
 
