@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 // importo tutti i componenti che verranno utilizzati come pagina
 import HomePage from './pages/HomePage.vue';
-import SingleProject from './pages/SingleProject.vue'
+// import SingleProject from './pages/SingleProject.vue'
 
 
 const router = createRouter({
@@ -17,7 +17,7 @@ const router = createRouter({
             component: HomePage
         },
         {
-            path: '/projects/:slug',
+            path: '/posts/:id',
             name: 'single-project',
             component: SingleProject
         }
