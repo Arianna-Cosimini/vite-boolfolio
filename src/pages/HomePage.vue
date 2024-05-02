@@ -79,16 +79,16 @@
 
 <template>
     <div class="container py-5 ">
-     <h1 class="pb-4">Progetti</h1>
+     <h1 class="pb-4 text-center fw-bold text-uppercase">Progetti</h1>
    
-       <div v-if="!isLoading" class="row gap-4" >
+       <div v-if="!isLoading" class="row gap-4 justify-content-center" >
            <ProjectItem
            class="col-auto"
            v-for="currentProject in projects"
            :project="currentProject">
            </ProjectItem>
    
-           <div id="pagination">
+           <div id="pagination" class="d-flex justify-content-center">
    
                <ul class="d-flex gap-2">
            
@@ -116,7 +116,7 @@
    #pagination {
      margin-top: 100px;
      padding-top: 20px;
-     border-top: solid 1px gray;
+     
    
      ul {
    
