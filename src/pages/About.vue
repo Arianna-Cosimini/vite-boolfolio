@@ -123,7 +123,7 @@ export default {
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #about-section {
     height: 800px;
     background-image: url('/img/ImgAbout.jpg');
@@ -180,7 +180,7 @@ img {
     }
 }
 
-img {
-    width: 100%;
-}
+// img {
+//     width: 100%;
+// }
 </style>

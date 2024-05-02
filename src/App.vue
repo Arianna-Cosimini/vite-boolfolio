@@ -32,11 +32,21 @@ export default {
 </script>
 
 <template>
+  <div id="image">
+    <AppHeader></AppHeader>
+    <router-view></router-view>
+    <AppFooter></AppFooter>
 
-  <AppHeader></AppHeader>
-  <router-view></router-view>
-  <AppFooter></AppFooter>
+  </div>
 
 </template>
 
-<style></style>
+<style>
+#image {
+  background-image: url('/public/img/photo-1678203699291-253ab7a4d6d2.avif');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+</style>
