@@ -8,7 +8,12 @@ export default {
 
     data() {
         return {
-
+            icons: [
+                'fa-brands fa-facebook-f',
+                'fa-brands fa-instagram',
+                'fa-brands fa-twitter',
+                'fa-brands fa-linkedin-in'
+            ]
 
         }
     },
@@ -29,6 +34,12 @@ export default {
 
             <div class="logo">
                 <p class="text-uppercase fw-bold">boolfolio</p>
+
+            </div>
+            <div class="social">
+                <div id="social-icons" class="d-flex gap-3">
+                    <i v-for="icon in icons" :class="icon" :key="icon"></i>
+                </div>
             </div>
         </footer>
     </div>
