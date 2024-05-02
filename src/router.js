@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 // importo tutti i componenti che verranno utilizzati come pagina
 import HomePage from './pages/HomePage.vue';
 import SingleProject from './pages/SingleProject.vue'
+import AppProjects from './pages/AppProjects.vue';
+import About from './pages/About.vue';
 
 
 const router = createRouter({
@@ -20,6 +22,16 @@ const router = createRouter({
             path: '/projects/:slug',
             name: 'single-project',
             component: SingleProject
+        },
+        {
+            path:'/projects',
+            name: 'app-projects',
+            component: AppProjects
+        },
+        {
+            path:'/chi-sono',
+            name: 'about',
+            component: About
         }
     ]
 

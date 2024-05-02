@@ -1,145 +1,70 @@
 <script>
-  import axios from 'axios';
+import axios from 'axios';
 
-  import ProjectItem from '../components/ProjectItem.vue';
-
-
-  export default {
-    
-    name: 'HomePage',
-
-    components: {
-        ProjectItem,
-        
-    },
-
-    data() {
-      return {
-
-        projects: [],
-
-        isLoading: false,
-
-        apiLinks: [],
-
-        apiPageNumber: 1,
-
-        baseApiUrl: 'http://127.0.0.1:8000/api',
-      }
-    },
-
-    mounted() {
-      this.apiCall();
-    },
-
-    methods: {
-      
-      apiCall() {
-
-        axios.get(this.baseApiUrl + '/projects', { 
-          params: {
-            page: this.apiPageNumber
-          }
-        }).then(res => {        
-
-           this.projects = res.data.results.data;
-
-           this.apiLinks = res.data.results.links;
-        })
-      },
-
-      changeApiPage(pageNumber) {
+import ProjectItem from '../components/ProjectItem.vue';
 
 
-        if(pageNumber=="&laquo; Previous" && this.apiPageNumber > 1){
+export default {
 
-                    
-          this.apiPageNumber -- ;
+  name: 'HomePage',
 
-        } else if(pageNumber=="Next &raquo;" && this.apiPageNumber < (this.apiLinks.length - 2)) {
-          //this.apiLinks.length - 2 corrisponde alla lunghezza dell'array a cui sottraggo il previous and next(da qui il -2)
-          
-          this.apiPageNumber ++ ;
-          
-        } 
+  components: {
+    ProjectItem,
 
-        if(!isNaN(pageNumber)){
+  },
 
-          this.apiPageNumber = pageNumber;
-        }
-        
+  data() {
+    return {
+    }
+  },
 
-        this.apiCall();
-        
-      },
-    },
+  mounted() {
 
-  }
+  },
+
+  methods: {
+  },
+
+}
 </script>
 
 <template>
-    <div class="container py-5 ">
-     <h1 class="pb-4 text-center fw-bold text-uppercase">Progetti</h1>
-   
-       <div v-if="!isLoading" class="row gap-4 justify-content-center" >
-           <ProjectItem
-           class="col-auto"
-           v-for="currentProject in projects"
-           :project="currentProject">
-           </ProjectItem>
-   
-           <div id="pagination" class="d-flex justify-content-center">
-   
-               <ul class="d-flex gap-2">
-           
-                   <li v-for="link in apiLinks" v-html="link.label" @click="changeApiPage(link.label)" :class="link.label == apiPageNumber ? 'active' : ''">
-                   
-                   </li>
-                   
-               </ul>
-   
-           </div>
-           
-       </div>
-       <div v-else>
-           <div class="spinner-border" role="status">
-               <span class="visually-hidden">Loading...</span>
-           </div>
-       </div>
-   
+
+  <div class="container py-5">
+    <div id="hero-section" class=" d-flex align-items-center">
+      <div id="hero-text" class="w-50">
+
+        <h1 class="fw-bold text-white mb-5">Ciao! <br>
+          Sono Arianna e sono una web-developer pronta ad aiutarti nella realizzazione del tuo grande progetto!
+        </h1>
+
+        <p>Per iniziare puoi dare un'occhiata ai miei progetti</p>
+      </div>
+
+      <div id="hero-img" class="w-50">
+        <img src="/img/ImgProfile.png" alt="">
+      </div>
     </div>
-       
-   </template>
-   
-   <style lang="scss">
-   
-   #pagination {
-     margin-top: 100px;
-     padding-top: 20px;
-     
-   
-     ul {
-   
-       list-style-type: none;
-       
-       li {
-         
-         padding: 8px;
-   
-         text-decoration: none;
-         color: white;
-   
-         transition: all .3s ease;
-   
-         cursor: pointer;
-   
-         &:hover, &.active {
-           background-color: rgba(255,255,255,0.4);
-           color: black;
-         }
-   
-       }
-     }
-   }
-   
-   </style>
+    <router-link :to="{ name: 'app-projects', params: { slug: projects } }" class="btn"
+      style="border: 1px solid #bc38fe;"><span class="d-flex align-items-center justify-content-center gap-2 fw-bold">
+        I miei progetti <i class="fa-solid fa-arrow-right"></i>
+      </span></router-link>
+
+  </div>
+
+
+
+</template>
+
+<style lang="scss" scoped>
+.btn {
+  &:hover {
+    background-color: #bc38bc;
+    color: black;
+  }
+}
+
+img {
+  width: 100%;
+}
+</style>

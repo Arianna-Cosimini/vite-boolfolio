@@ -36,10 +36,17 @@ export default {
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button type="submit">Search</button>
-                    </form>
+
+                    <ul class="d-flex list-unstyled gap-4">
+                        <router-link :to="{ name: 'home', params: { slug: '/' } }"
+                            class="text-decoration-none fw-bold text-white">Home</router-link>
+
+                        <router-link :to="{ name: 'app-projects', params: { slug: projects } }"
+                            class="text-decoration-none fw-bold text-white">I miei progetti</router-link>
+
+                        <router-link :to="{ name: 'about', params: { slug: '/chi-sono' } }"
+                            class="text-decoration-none fw-bold text-white">Chi sono</router-link>
+                    </ul>
 
                 </div>
             </div>
@@ -49,7 +56,7 @@ export default {
 
 </template>
 
-<style lang="scss">
+<style lang="scss"scoped>
 h1 {
     font-size: 50px;
     margin-bottom: 0;
@@ -61,7 +68,7 @@ h1 {
     /* Nascondo il colore del testo */
 }
 
-button{
+button {
     border: 1px solid #bc38fe;
     border-radius: 8px;
     background-color: transparent;
