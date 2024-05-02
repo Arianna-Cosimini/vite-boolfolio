@@ -33,12 +33,18 @@ export default {
             </span>
 
             <div class="logo">
-                <p class="text-uppercase fw-bold">boolfolio</p>
+                <router-link :to="{ name: 'home', params: { slug: '/' } }" class="navbar-brand">
+                    <p class="text-uppercase fw-bold">boolfolio</p>
+                </router-link>
+
 
             </div>
             <div class="social">
-                <div id="social-icons" class="d-flex gap-3">
-                    <i v-for="icon in icons" :class="icon" :key="icon"></i>
+                <div id="social-icons">
+                    <a href="" class="d-flex gap-3 text-white">
+                        <i v-for="icon in icons" :class="icon" :key="icon"></i>
+                    </a>
+
                 </div>
             </div>
         </footer>
