@@ -56,8 +56,8 @@
                     
           this.apiPageNumber -- ;
 
-        } else if(pageNumber=="Next &raquo;" && this.apiPageNumber < 4) {
-
+        } else if(pageNumber=="Next &raquo;" && this.apiPageNumber < (this.apiLinks.length - 2)) {
+          //this.apiLinks.length - 2 corrisponde alla lunghezza dell'array a cui sottraggo il previous and next(da qui il -2)
           
           this.apiPageNumber ++ ;
           
