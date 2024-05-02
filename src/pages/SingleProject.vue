@@ -39,7 +39,7 @@ export default {
     <div class="container p-5" v-if="project">
         <h1>{{ project.name }}</h1>
         <p>{{ project.description }}</p>
-        <p v-if="project.type =! null">{{ project.type.title }}</p>
+        <p v-if="project.type != null">{{ project.type.title }}</p>
         <p v-for="technology in project.technologies">{{ technology.title }}</p>
     </div>
     <div v-else>
