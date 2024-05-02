@@ -39,10 +39,10 @@ export default {
                     </ul>
 
                     <ul class="d-flex list-unstyled gap-4">
-                        <router-link :to="{ name: 'home', params: { slug: '/' } }"
+                        <router-link :to="{ name: 'home'}"
                             class="text-decoration-none fw-bold text-white">Home</router-link>
 
-                        <router-link :to="{ name: 'about', params: { slug: '/chi-sono' } }"
+                        <router-link :to="{ name: 'about' }"
                             class="text-decoration-none fw-bold text-white">Chi sono</router-link>
 
                         <router-link :to="{ name: 'app-projects', params: { slug: projects } }"
