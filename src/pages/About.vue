@@ -40,7 +40,7 @@ export default {
 
     <div class="container">
         <h2 class="text-center text-uppercase mb-5">La mia storia</h2>
-        <div id="history" class="d-flex gap-4">
+        <div id="history" class="d-flex gap-4  slide-in-left">
             <div id="history-img" class="w-50">
                 <img src="/public/img/ImgAbout.jpg" alt="">
             </div>
@@ -75,7 +75,7 @@ export default {
             </div>
         </div>
 
-        <div id="history" class="d-flex gap-4">
+        <div id="history" class="d-flex gap-4 slide-in-right">
             <div id="history-text" class="w-50">
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptate voluptatem iure magnam
@@ -180,7 +180,42 @@ img {
     }
 }
 
+/* Slide-in da destra verso sinistra */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in da sinistra verso destra */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+
 // img {
 //     width: 100%;
-// }
-</style>
+// }</style>
