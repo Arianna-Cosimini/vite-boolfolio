@@ -34,7 +34,7 @@ export default {
 <template>
   <div id="image">
     <AppHeader></AppHeader>
-    <router-view class="my_height"></router-view>
+    <router-view></router-view>
     <AppFooter></AppFooter>
 
   </div>
@@ -49,9 +49,8 @@ export default {
   background-size: cover;
 
 
+  height: 100vh;
 }
 
-.my_height{
-  height: calc(100vh - 440px);
-}
+
 </style>
