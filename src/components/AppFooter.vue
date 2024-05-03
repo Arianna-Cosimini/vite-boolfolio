@@ -28,7 +28,7 @@ export default {
     <div class="container py-5">
 
         <footer class="d-flex justify-content-between">
-            <span>
+            <span class="w-25">
                 Copyright (c): 2024 Boolean Classe #118
             </span>
 
@@ -39,7 +39,7 @@ export default {
 
 
             </div>
-            <div class="social">
+            <div class="social w-25 d-flex justify-content-end">
                 <div id="social-icons">
                     <a href="" class="d-flex gap-3 text-white">
                         <i v-for="icon in icons" :class="icon" :key="icon"></i>
