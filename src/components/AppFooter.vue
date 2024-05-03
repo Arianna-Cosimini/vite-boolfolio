@@ -33,7 +33,7 @@ export default {
             </span>
 
             <div class="logo">
-                <router-link :to="{ name: 'home', params: { slug: '/' } }" class="navbar-brand">
+                <router-link :to="{ name: 'home'}" class="navbar-brand">
                     <p class="text-uppercase fw-bold">boolfolio</p>
                 </router-link>
 

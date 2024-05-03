@@ -45,7 +45,7 @@ export default {
         <img src="/img/ImgProfile.png" alt="">
       </div>
     </div>
-    <router-link :to="{ name: 'app-projects', params: { slug: projects } }" class="btn"
+    <router-link :to="{ name: 'app-projects'}" class="btn"
       style="border: 1px solid #bc38fe;"><span
         class="d-flex align-items-center justify-content-center gap-2 fw-bold slide-in-up">
         I miei progetti <i class="fa-solid fa-arrow-right"></i>
@@ -58,6 +58,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+
 .btn {
   &:hover {
     background-color: #bc38bc;
