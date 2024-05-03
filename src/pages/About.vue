@@ -6,7 +6,7 @@ import ProjectItem from '../components/ProjectItem.vue';
 
 export default {
 
-    name: 'HomePage',
+    name: 'Contacts',
 
     components: {
         ProjectItem,
