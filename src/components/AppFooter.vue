@@ -8,7 +8,12 @@ export default {
 
     data() {
         return {
-
+            icons: [
+                'fa-brands fa-facebook-f',
+                'fa-brands fa-instagram',
+                'fa-brands fa-twitter',
+                'fa-brands fa-linkedin-in'
+            ]
 
         }
     },
@@ -28,7 +33,19 @@ export default {
             </span>
 
             <div class="logo">
-                <p class="text-uppercase fw-bold">boolfolio</p>
+                <router-link :to="{ name: 'home', params: { slug: '/' } }" class="navbar-brand">
+                    <p class="text-uppercase fw-bold">boolfolio</p>
+                </router-link>
+
+
+            </div>
+            <div class="social">
+                <div id="social-icons">
+                    <a href="" class="d-flex gap-3 text-white">
+                        <i v-for="icon in icons" :class="icon" :key="icon"></i>
+                    </a>
+
+                </div>
             </div>
         </footer>
     </div>

@@ -8,9 +8,16 @@ export default {
 
     data() {
         return {
-
+            showNavbar: false,
 
         }
+    },
+
+    mounted() {
+        // Mostra la navbar con un effetto slide-in dopo un breve ritardo
+        setTimeout(() => {
+            this.showNavbar = true;
+        }, 100);
     },
 
 
@@ -22,7 +29,7 @@ export default {
 <template>
     <div class="container py-5">
 
-        <nav class="navbar navbar-expand-lg" style="z-index: 1;">
+        <nav v-if="showNavbar" class="navbar navbar-expand-lg slide-in" style="z-index: 1;">
             <div class="container-fluid">
                 <router-link :to="{ name: 'home'}" class="navbar-brand">
                     <h1 class="display-1 text-uppercase fw-bold">Boolfolio</h1>
@@ -39,11 +46,11 @@ export default {
                     </ul>
 
                     <ul class="d-flex list-unstyled gap-4">
-                        <router-link :to="{ name: 'home'}"
-                            class="text-decoration-none fw-bold text-white">Home</router-link>
+                        <router-link :to="{ name: 'home' }"
+                            class="link text-decoration-none fw-bold text-white">Home</router-link>
 
-                        <router-link :to="{ name: 'about' }"
-                            class="text-decoration-none fw-bold text-white">Chi sono</router-link>
+                        <router-link :to="{ name: 'about' }" class="link text-decoration-none fw-bold text-white">Chi
+                            sono</router-link>
 
                         <router-link :to="{ name: 'app-projects'}"
                             class="text-decoration-none fw-bold text-white">I miei progetti</router-link>
@@ -73,9 +80,33 @@ h1 {
     /* Nascondo il colore del testo */
 }
 
+.link{
+    padding-bottom: 5px;
+    &:hover{
+        border-bottom: 2px solid #bc38fe;
+        scale: 1.2;
+    }
+}
+
 button {
     border: 1px solid #bc38fe;
     border-radius: 8px;
     background-color: transparent;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%); // Inizia sopra la pagina
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0); // Torna alla posizione originale
+        opacity: 1;
+    }
+}
+
+.navbar.slide-in {
+    animation: slideIn 0.8s ease-in-out forwards; 
 }
 </style>
